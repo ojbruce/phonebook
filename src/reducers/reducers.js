@@ -1,6 +1,7 @@
 import { ADD_CONTACT, DELETE_CONTACT, EDIT_CONTACT_NAME, EDIT_CONTACT_NUMBER } from '../constants/action-types'
+import {initialContacts} from './../constants/initial-contacts'
 
-function contacts (state = [], action) {
+function contacts (state = initialContacts, action) {
   switch (action.type) {
     case ADD_CONTACT:
       return [

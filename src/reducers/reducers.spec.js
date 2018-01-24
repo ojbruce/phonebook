@@ -1,11 +1,12 @@
 import contacts from './reducers'
+import {initialContacts} from './../constants/initial-contacts'
 
 const chai = require('chai')
 const expect = chai.expect
 
 describe('Contacts reducer', () => {
   it('should handle initial state', () => {
-    expect(contacts(undefined, {})).to.deep.equal([])
+    expect(contacts(initialContacts, {})).to.deep.equal([...initialContacts])
   })
 
   it('should handle ADD_CONTACT', () => {
