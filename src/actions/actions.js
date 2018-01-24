@@ -1,4 +1,4 @@
-import * as types from '../constants/ActionTypes'
+import * as types from '../constants/action-types'
 
 export const addContact = (name, phoneNumber) => ({
   type: types.ADD_CONTACT,
