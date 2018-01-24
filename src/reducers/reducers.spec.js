@@ -22,6 +22,31 @@ describe('Contacts reducer', () => {
         phoneNumber: '0697656565'
       }
     ])
+
+    expect(
+      contacts([
+        {
+          id: 0,
+          name: 'Name Name',
+          phoneNumber: '0697656565'
+        }
+      ], {
+        type: 'ADD_CONTACT',
+        name: 'Name Name',
+        phoneNumber: '0697656565'
+      })
+    ).to.deep.equal([
+      {
+        id: 0,
+        name: 'Name Name',
+        phoneNumber: '0697656565'
+      },
+      {
+        id: 1,
+        name: 'Name Name',
+        phoneNumber: '0697656565'
+      }
+    ])
   })
 
   it('should handle EDIT_CONTACT_NAME', () => {
