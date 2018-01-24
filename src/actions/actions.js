@@ -1,8 +1,9 @@
 import * as types from '../constants/ActionTypes'
 
-export const addContact = (name, phoneNumber) => ({ 
+export const addContact = (name, phoneNumber) => ({
   type: types.ADD_CONTACT,
-  text 
+  name,
+  phoneNumber
 })
 export const deleteContact = (id) => ({
   type: types.DELETE_CONTACT,
