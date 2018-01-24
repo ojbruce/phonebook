@@ -1,0 +1,9 @@
+# Installed libs
+node_modules
+.nyc_output
+
+# Public
+dist
+
+# NIF 
+.DS_Store
