@@ -1,0 +1,16 @@
+@import '_vars.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  
+  list-style: none;
+  
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: $color_primary;
+  color: $color_secundary
+}
