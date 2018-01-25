@@ -1,11 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import ContactItem from './../components/contact/contact-item'
 
 const App = ({contacts}) => (
-  <div className=''>
+  <div className='phonebook'>
     {contacts.map(contact =>
-      <span key={contact.id}>{contact.name}</span>
+      <ContactItem key={contact.id}
+        name={contact.name}
+        phoneNumber={contact.phoneNumber}
+        isNew={false}
+      />
     )}
   </div>
 )
