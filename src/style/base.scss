@@ -7,7 +7,7 @@
   
   list-style: none;
   
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Muli', sans-serif;
 }
 
 body {
@@ -16,5 +16,15 @@ body {
 }
 
 .phonebook {
+  display: flex;
+  height: 100vh;
+  min-height: 300px;
+}
+
+.phonebook__contact-view {
+  flex: 1;
+}
+.phonebook_list {
+  flex-basis: 300px;
   padding: 0 1em;
 }
