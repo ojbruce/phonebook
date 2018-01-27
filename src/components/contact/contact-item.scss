@@ -1,6 +1,10 @@
 .phonebook__contact {
   color: $color_secundary;
 
+  &--selected {
+    color: $color_selected;
+  }
+
   &.phonebook__contact--new-contact {
     color: $color_primary;
   }

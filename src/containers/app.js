@@ -7,30 +7,45 @@ import * as ContactActions from './../actions/actions'
 import ContactItem from './../components/contact/contact-item'
 import ContactView from './../components/contact/contact-view'
 
-const App = ({contacts, actions}) => (
-  <div className='phonebook'>
-    <div className='phonebook_list'>
-      {contacts.map(contact =>
-        <ContactItem key={contact.id}
-          name={contact.name}
-          phoneNumber={contact.phoneNumber}
-          isNew={false}
-          addContact={actions.addContact}
-          editName={actions.editContactName}
-          editPhone={actions.editContactPhoneNumber}
-          deleteContact={actions.deleteContact}
+class App extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      selected: this.props.contacts[0].id || null
+    }
+
+    this.handleSelection = this.handleSelection.bind(this)
+  }
+
+  handleSelection (id) {
+    this.setState({selected: this.props.contacts[id]})
+  }
+
+  render () {
+    return (
+      <div className='phonebook'>
+        <div className='phonebook_list'>
+          {this.props.contacts.map(contact =>
+            <ContactItem key={contact.id}
+              {...contact}
+              isNew={false}
+              isSelected={this.state.selected.id === contact.id}
+              handleSelect={this.handleSelection}
+            />
+          )}
+        </div>
+        <ContactView
+          addContact={this.props.actions.addContact}
+          editName={this.props.actions.editContactName}
+          editPhone={this.props.actions.editContactPhoneNumber}
+          deleteContact={this.props.actions.deleteContact}
+          contact={this.state.selected}
         />
-      )}
-    </div>
-    <ContactView
-      addContact={actions.addContact}
-      editName={actions.editContactName}
-      editPhone={actions.editContactPhoneNumber}
-      deleteContact={actions.deleteContact}
-      contact={contacts[0]}
-    />
-  </div>
-)
+      </div>
+    )
+  }
+}
 
 App.propTypes = {
   contacts: PropTypes.array.isRequired,

@@ -10,7 +10,9 @@ const setup = (assigned) => {
     id: 0,
     name: 'Chou', 
     phoneNumber: '0609090909',
-    isNew: false
+    isNew: false,
+    isSelected: false,
+    handleSelect: () => {}
   }, assigned)
   
   const renderer = createRenderer()
@@ -41,6 +43,10 @@ describe('components', () => {
       const { output } = setup({isNew: true})
       output.props.className.should.contain('phonebook__contact--new-contact')
     })
-    
+
+    it('Should render correctly when isSelected=True', () => {
+      const { output } = setup({isSelected: true})
+      output.props.className.should.contain('phonebook__contact--selected')
+    })
   })
 })

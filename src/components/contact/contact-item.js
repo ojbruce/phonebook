@@ -5,16 +5,17 @@ require('./contact-item.scss')
 
 let classNames = require('classnames')
 
-const ContactItem = ({ name, phoneNumber, isNew }) => {
+const ContactItem = ({ id, name, phoneNumber, isNew, isSelected, handleSelect }) => {
   const cNames = classNames(
     {
       'phonebook__contact': true,
+      'phonebook__contact--selected': isSelected,
       'phonebook__contact--new-contact': isNew
     }
   )
 
   return (
-    <div className={cNames}>
+    <div className={cNames} onClick={() => handleSelect(id)}>
       <div className='contact__icon'>
         {name[0]}
       </div>
@@ -32,9 +33,12 @@ const ContactItem = ({ name, phoneNumber, isNew }) => {
 }
 
 ContactItem.propTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   phoneNumber: PropTypes.string.isRequired,
-  isNew: PropTypes.bool.isRequired
+  isNew: PropTypes.bool.isRequired,
+  isSelected: PropTypes.bool,
+  handleSelect: PropTypes.func.isRequired
 }
 
 export default ContactItem
