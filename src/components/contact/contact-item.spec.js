@@ -12,7 +12,6 @@ const setup = (assigned) => {
     phoneNumber: '0609090909',
     isNew: false
   }, assigned)
-  console.log(props);
   
   const renderer = createRenderer()
 
