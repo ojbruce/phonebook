@@ -30,7 +30,10 @@ class App extends React.Component {
             <ContactItem key={contact.id}
               {...contact}
               isNew={false}
-              isSelected={this.state.selected.id === contact.id}
+              isSelected={this.state.selected
+                ? this.state.selected.id === contact.id
+                : false
+              }
               handleSelect={this.handleSelection}
             />
           )}
