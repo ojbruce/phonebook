@@ -38,12 +38,25 @@
 
   .action__row {
     padding: 1em;
+    text-align: center;
 
-    .delete__button {
+    button {
+      cursor: pointer;
       border: 1px solid $color-secundary;
-      background: transparent;
-      padding: 1em;
+      background-color: transparent;
+      width: 60px;
+      height: 60px;
+      font-size: 1em;
       border-radius: 50px;
+      margin: 0 1em;
+      outline-width: 1px;
+      color: $color-secundary;
+      
+      &:hover {
+        background-color: $color-secundary;
+        color: $color-primary;
+        transition: all 1s;
+      }
     }
   }
 }

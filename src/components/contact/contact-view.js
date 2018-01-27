@@ -23,8 +23,18 @@ const ContactView = ({ contact, addContact, editPhone, editName, deleteContact }
 
   return (
     <div className={cNames}>
-      <div className='contact__icon'>
-        1
+      <div className='action__row'>
+        <button
+          className='delete__button'
+          onClick={(e) => deleteContact(contact.id)}>
+          <i className='fa fa-trash-o' aria-hidden />
+        </button>
+        <button>
+          <i className='fa fa-commenting' aria-hidden='true"' />
+        </button>
+        <button>
+          <i className='fa fa-address-card-o' aria-hidden='true"' />
+        </button>
       </div>
       <div className='contact__info'>
         <div className='contact__name'>
@@ -41,13 +51,6 @@ const ContactView = ({ contact, addContact, editPhone, editName, deleteContact }
             onChange={(e) => editPhone(contact.id, e.target.value)}
           />
         </div>
-      </div>
-      <div className='action__row'>
-        <button
-          className='delete__button'
-          onClick={(e) => deleteContact(contact.id)}>
-          <i className='fa fa-trash-o' aria-hidden /> Delete
-        </button>
       </div>
     </div>
   )
