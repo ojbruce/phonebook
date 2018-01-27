@@ -26,7 +26,7 @@ const ContactItem = ({ name, phoneNumber, isNew }) => {
           {phoneNumber}
         </div>
       </div>
-      
+
     </div>
   )
 }
