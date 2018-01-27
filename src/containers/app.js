@@ -16,10 +16,21 @@ class App extends React.Component {
     }
 
     this.handleSelection = this.handleSelection.bind(this)
+    this.handleAdd = this.handleAdd.bind(this)
+  }
+
+  componentWillReceiveProps ({contacts}) {
+    if (contacts.length !== this.props.contacts.length) {
+      this.setState({selected: contacts[contacts.length - 1]})
+    }
   }
 
   handleSelection (id) {
     this.setState({selected: this.props.contacts[id]})
+  }
+
+  handleAdd () {
+    this.props.actions.addContact('Nouveau', '00000')
   }
 
   render () {
@@ -45,6 +56,12 @@ class App extends React.Component {
           deleteContact={this.props.actions.deleteContact}
           contact={this.state.selected}
         />
+        <button
+          className='add-contact'
+          onClick={this.handleAdd}
+        >
+          <i className='fa fa-plus' aria-hidden='true' />
+        </button>
       </div>
     )
   }
