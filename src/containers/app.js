@@ -12,7 +12,7 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      selected: this.props.contacts[0].id || null
+      selected: props.contacts[0] || null
     }
 
     this.handleSelection = this.handleSelection.bind(this)
@@ -22,6 +22,8 @@ class App extends React.Component {
   componentWillReceiveProps ({contacts}) {
     if (contacts.length !== this.props.contacts.length) {
       this.setState({selected: contacts[contacts.length - 1]})
+    } else {
+      this.setState({selected: contacts[this.state.selected.id]})
     }
   }
 
