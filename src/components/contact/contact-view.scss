@@ -1,6 +1,25 @@
 .phonebook__contact-view {
   border-left: solid 2px $color-secundary;
 
+  .contact__preview {
+    text-align: center;
+  }
+
+  img {
+    margin-top: 1em;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    animation: fadein 4s;
+    background-color: bisque;
+    transition: opacity 2s;
+  }
+
+  @keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
   &.empty__view {
     width: 100%;
     height: 100%;

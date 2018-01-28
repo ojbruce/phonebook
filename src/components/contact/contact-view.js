@@ -21,8 +21,14 @@ const ContactView = ({ contact, addContact, editPhone, editName, deleteContact }
     )
   }
 
+  // unsplash random for now
+  const url = 'https://source.unsplash.com/random/200x200/?q=' + contact.id
+
   return (
     <div className={cNames}>
+      <div className='contact__preview'>
+        <img src={url} with='100%' />
+      </div>
       <div className='action__row'>
         <button
           className='delete__button'
@@ -41,7 +47,7 @@ const ContactView = ({ contact, addContact, editPhone, editName, deleteContact }
           Name :
           <input
             value={contact.name}
-            onChange={(e) => editName(contact.id, e.target.value)}
+            onChange={(e) => {console.log('test'); editName(contact.id, e.target.value)}}
           />
         </div>
         <div className='contact__phone-number'>
